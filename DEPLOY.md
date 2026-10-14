@@ -13,7 +13,7 @@
 | `site/index.html` | `canonical`、`og:url`、`og:image`、`twitter:image` 里的域名 |
 | `site/sitemap.xml` | 两处 `<loc>` 域名 |
 | `site/robots.txt` | `Sitemap:` 域名 |
-| `site/privacy.html` | `privacy@example.com` 换成你的联系邮箱 |
+| `site/privacy.html` | 联系邮箱（**已设为 `664304948@qq.com`**，如需更换改这里） |
 
 > 一次性替换命令（把 `你的域名` 换成实际的）：
 > ```bash
