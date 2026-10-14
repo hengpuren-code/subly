@@ -167,6 +167,14 @@ td .cat {
   .hide-sm { display: none; }
 }
 
+@media (max-width: 560px) {
+  th, td { padding: 10px 8px; font-size: 13px; }
+  th { white-space: nowrap; }
+  /* 手机上「月均」列冗余（顶部统计卡已给出总额），隐藏以给名称/日期让位 */
+  th:nth-child(3), td:nth-child(3) { display: none; }
+  td .cat { white-space: nowrap; }
+}
+
 /* ---------- 长文页（隐私政策） ---------- */
 .prose { max-width: 720px; margin: 30px auto 0; }
 .prose h1 { font-size: 32px; margin: 0 0 6px; }
