@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subly — 订阅支出追踪</title>
+  <meta name="description" content="看清每一笔订阅，别再为忘掉的东西付钱。本地优先，数据不出浏览器。">
+  <meta name="theme-color" content="#0f1117">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="dot"></span>Subly</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="app.html">打开应用</a>
+      </div>
+    </nav>
+
+    <header class="app-header">
+      <div>
+        <h1 style="font-size:24px;margin:0">我的订阅</h1>
+        <p style="color:var(--muted);margin:4px 0 0;font-size:14px">数据只保存在本机浏览器，不上传任何服务器。</p>
+      </div>
+      <button class="btn btn-primary" id="btn-add">+ 添加订阅</button>
+    </header>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="label">每月等价支出</div>
+        <div class="value" id="stat-monthly">$0.00</div>
+      </div>
+      <div class="stat">
+        <div class="label">每年等价支出</div>
+        <div class="value" id="stat-yearly">$0.00</div>
+      </div>
+      <div class="stat">
+        <div class="label" id="stat-due-label">未来 7 天内续费</div>
+        <div class="value small" id="stat-due">无</div>
+      </div>
+    </section>
+
+    <section class="reminder" id="reminders" style="display:none">
+      <div class="reminder-head">
+        <h2>🔔 即将续费</h2>
+        <div class="reminder-actions">
+          <label>提前
+            <select id="reminder-days">
+              <option value="3">3</option>
+              <option value="7" selected>7</option>
+              <option value="14">14</option>
+              <option value="30">30</option>
+            </select>
+            天提醒
+          </label>
+          <button class="btn btn-sm" id="btn-notify">开启浏览器通知</button>
+        </div>
+      </div>
+      <ul id="reminder-list"></ul>
+    </section>
+
+    <div class="notice" id="notice" style="display:none"></div>
+
+    <div class="toolbar">
+      <div class="left">
+        <label style="color:var(--muted);font-size:13px">排序</label>
+        <select id="sort">
+          <option value="due">按下一次续费日</option>
+          <option value="amount">按金额（高→低）</option>
+        </select>
+      </div>
+      <div class="left">
+        <button class="btn btn-sm" id="btn-import">导入</button>
+        <button class="btn btn-sm" id="btn-export">导出备份</button>
+        <input type="file" id="file-import" accept="application/json" style="display:none">
+      </div>
+    </div>
+
+    <table id="table">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>价格</th>
+          <th>每月等价</th>
+          <th>下次续费</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <div class="empty" id="empty">
+      还没有订阅。点右上角「添加订阅」，花 2 分钟把你在付的钱理清楚。
+    </div>
+
+    <footer>
+      Subly · 本地优先的订阅追踪器 · <a href="index.html">返回首页</a> · <a href="privacy.html">隐私政策</a>
+    </footer>
+  </div>
+
+  <!-- 添加 / 编辑弹窗 -->
+  <div class="modal-backdrop" id="backdrop">
+    <div class="modal">
+      <h2 id="modal-title">添加订阅</h2>
+      <div class="field">
+        <label for="f-name">名称</label>
+        <input type="text" id="f-name" placeholder="例如 Netflix">
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="f-amount">金额</label>
+          <input type="number" id="f-amount" min="0" step="0.01" placeholder="15.00">
+        </div>
+        <div class="field">
+          <label for="f-period">计费周期</label>
+          <select id="f-period">
+            <option value="week">每周</option>
+            <option value="month" selected>每月</option>
+            <option value="quarter">每季</option>
+            <option value="year">每年</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="f-due">下次续费日</label>
+          <input type="date" id="f-due">
+        </div>
+        <div class="field">
+          <label for="f-category">分类</label>
+          <select id="f-category">
+            <option>影音</option>
+            <option>软件</option>
+            <option>云盘</option>
+            <option>音乐</option>
+            <option>健身</option>
+            <option>新闻</option>
+            <option selected>其他</option>
+          </select>
+        </div>
+      </div>
+      <div id="f-error" style="color:var(--bad);font-size:13px;min-height:18px"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="btn-cancel">取消</button>
+        <button class="btn btn-primary" id="btn-save">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
