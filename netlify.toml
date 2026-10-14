@@ -1,0 +1,6 @@
+[build]
+  # 纯静态站：无需构建命令，直接发布 site/ 目录
+  publish = "site"
+  command = ""
+
+# 安全头由 site/_headers 提供（Netlify 与 Cloudflare Pages 均识别）
