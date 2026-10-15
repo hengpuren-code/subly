@@ -197,3 +197,18 @@ td .cat {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .center-page .cta { display: flex; gap: 12px; }
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; gap: 10px; margin: 20px 0 50px; }
+.qa {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 0 18px;
+}
+.qa summary {
+  cursor: pointer; padding: 16px 0; font-weight: 600; font-size: 15px;
+  list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; color: var(--muted); font-weight: 400; font-size: 20px; }
+.qa[open] summary::after { content: "−"; }
+.qa p { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
