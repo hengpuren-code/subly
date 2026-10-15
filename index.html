@@ -30,6 +30,44 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Subly 是什么？",
+        "acceptedAnswer": { "@type": "Answer", "text": "一个本地优先的订阅支出追踪器。记录你在付的订阅，自动折算每月/每年花销，并高亮快到期、该做决定的项。" }
+      },
+      {
+        "@type": "Question",
+        "name": "Subly 免费吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "免费版最多管理 8 个订阅，包含支出统计、续费日高亮与本地导入导出。" }
+      },
+      {
+        "@type": "Question",
+        "name": "我的数据安全吗？会被上传吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不会。所有数据只保存在浏览器本地，不需要注册、不连接服务器、不上传任何内容。" }
+      },
+      {
+        "@type": "Question",
+        "name": "怎么知道哪些订阅该取消了？",
+        "acceptedAnswer": { "@type": "Answer", "text": "按每月等价支出排序，并高亮 7 天内到期的订阅，帮你决定续还是砍。" }
+      },
+      {
+        "@type": "Question",
+        "name": "支持哪些计费周期？",
+        "acceptedAnswer": { "@type": "Answer", "text": "每周、每月、每季、每年，都会自动折算成每月等价支出方便对比。" }
+      },
+      {
+        "@type": "Question",
+        "name": "需要注册账号吗？离线能用吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不需要注册，打开即用；数据存在本机，断网也能正常使用。" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -110,6 +148,37 @@
           </ul>
           <a class="btn btn-primary" href="app.html">升级 Pro</a>
         </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2 class="section-title">常见问题</h2>
+      <p class="section-sub">关于订阅管理和自动续费，你可能想知道这些。</p>
+      <div class="faq">
+        <details class="qa">
+          <summary>Subly 是什么？</summary>
+          <p>一个本地优先的订阅支出追踪器。把你在付的订阅（视频会员、云盘、软件、健身……）记下来，自动折算成每月/每年花销，并高亮快到期、该做决定的项。</p>
+        </details>
+        <details class="qa">
+          <summary>Subly 免费吗？</summary>
+          <p>免费版最多可管理 8 个订阅，包含每月/每年支出统计、续费日高亮与本地导入导出。需要管理更多订阅时，再升级 Pro。</p>
+        </details>
+        <details class="qa">
+          <summary>我的数据安全吗？会被上传吗？</summary>
+          <p>不会。所有数据只保存在你浏览器本地（localStorage），不需要注册、不连接服务器、不上传任何内容。你随时可以导出备份或清空。</p>
+        </details>
+        <details class="qa">
+          <summary>怎么知道哪些订阅该取消了？</summary>
+          <p>Subly 会按金额（每月等价支出）排序，让你一眼看出最贵的是哪几个；同时把 7 天内到期的订阅高亮出来，给你足够时间决定续还是砍。</p>
+        </details>
+        <details class="qa">
+          <summary>支持哪些计费周期？</summary>
+          <p>每周、每月、每季、每年都支持，Subly 会自动把它们折算成「每月等价支出」方便对比。比如每年 120 元会被算成每月 10 元。</p>
+        </details>
+        <details class="qa">
+          <summary>需要注册账号吗？离线能用吗？</summary>
+          <p>不需要注册，打开即用。因为数据存在本机，断网也能正常使用。</p>
+        </details>
       </div>
     </section>
 
